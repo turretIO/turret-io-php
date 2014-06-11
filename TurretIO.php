@@ -119,39 +119,39 @@ class Account extends TurretIO {
   }
 }
 
-class Segment extends TurretIO {
+class Target extends TurretIO {
   public function fetch($name) {
-    return $this->GET("/latest/segment/$name");
+    return $this->GET("/latest/target/$name");
   }
 
   public function create($name, $attribute_map) {
-    return $this->POST("/latest/segment/$name", array("attributes" => $attribute_map));
+    return $this->POST("/latest/target/$name", array("attributes" => $attribute_map));
   }
 
   public function update($name, $attribute_map) {
-    return $this->POST("/latest/segment/$name", array("attributes" => $attribute_map));
+    return $this->POST("/latest/target/$name", array("attributes" => $attribute_map));
   }
 }
 
-class SegmentEmail extends TurretIO {
-  public function fetch($segment_name, $email_id) {
-    return $this->GET("/latest/segment/$segment_name/email/$email_id");
+class TargetEmail extends TurretIO {
+  public function fetch($target_name, $email_id) {
+    return $this->GET("/latest/target/$target_name/email/$email_id");
   }
 
-  public function create($segment_name, $subject, $html_body, $plain_body) {
-    return $this->POST("/latest/segment/$segment_name/email", array("subject" => $subject, "html" => $html_body, "plain" => $plain_body));
+  public function create($target_name, $subject, $html_body, $plain_body) {
+    return $this->POST("/latest/target/$target_name/email", array("subject" => $subject, "html" => $html_body, "plain" => $plain_body));
   }
 
-  public function update($segment_name, $email_id, $subject, $html_body, $plain_body) {
-    return $this->POST("/latest/segment/$segment_name/email/$email_id", array("subject" => $subject, "html" => $html_body, "plain" => $plain_body));
+  public function update($target_name, $email_id, $subject, $html_body, $plain_body) {
+    return $this->POST("/latest/target/$target_name/email/$email_id", array("subject" => $subject, "html" => $html_body, "plain" => $plain_body));
   }
 
-  public function sendTest($segment_name, $email_id, $email_from, $recipient) {
-    return $this->POST("/latest/segment/$segment_name/email/$email_id/sendTestEmail", array("email_from" => $email_from, "recipient" => $recipient));
+  public function sendTest($target_name, $email_id, $email_from, $recipient) {
+    return $this->POST("/latest/target/$target_name/email/$email_id/sendTestEmail", array("email_from" => $email_from, "recipient" => $recipient));
   }
 
-  public function send($segment_name, $email_id, $email_from) {
-    return $this->POST("/latest/segment/$segment_name/email/$email_id/sendEmail", array("email_from" => $email_from));
+  public function send($target_name, $email_id, $email_from) {
+    return $this->POST("/latest/target/$target_name/email/$email_id/sendEmail", array("email_from" => $email_from));
   }
 }
 
