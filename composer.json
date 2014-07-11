@@ -1,3 +1,7 @@
 {
-    "name": "turret-io/turret-io-php"
+    "name": "turret-io/turret-io-php",
+    "description": "Turret.IO PHP client library",
+    "require": {
+        "php": ">=5.3.0"
+    }
 }
