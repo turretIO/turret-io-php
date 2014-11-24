@@ -19,7 +19,7 @@ namespace TurretIO;
 
 class TurretIO {
 
-  private static $host = 'https://api.turret.io';
+  private static $host = 'https://dev-api.turret.io';
 
   private $key;
   private $secret;
@@ -44,6 +44,8 @@ class TurretIO {
     if($type == "GET") {
       $ch = curl_init(self::$host . $uri);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_VERBOSE, true);
+      curl_setopt($ch, CURLOPT_FAILONERROR, true);
     }
 
     if($type == "POST") {
@@ -124,12 +126,12 @@ class Target extends TurretIO {
     return $this->GET("/latest/target/$name");
   }
 
-  public function create($name, $attribute_map) {
-    return $this->POST("/latest/target/$name", array("attributes" => $attribute_map));
+  public function create($name, $attribute_array) {
+    return $this->POST("/latest/target/$name", array("attributes" => $attribute_array));
   }
 
-  public function update($name, $attribute_map) {
-    return $this->POST("/latest/target/$name", array("attributes" => $attribute_map));
+  public function update($name, $attribute_array) {
+    return $this->POST("/latest/target/$name", array("attributes" => $attribute_array));
   }
 }
 
