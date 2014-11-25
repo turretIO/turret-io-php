@@ -19,7 +19,7 @@ namespace TurretIO;
 
 class TurretIO {
 
-  private static $host = 'https://dev-api.turret.io';
+  private static $host = 'https://api.turret.io';
 
   private $key;
   private $secret;
